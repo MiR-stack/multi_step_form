@@ -33,6 +33,7 @@ const NavButton = styled.button`
   width: 40px;
   border: 1px solid hsl(231, 11%, 63%);
   border-radius: 50%;
+  font-weight: 700;
   cursor: pointer;
 
 
@@ -40,7 +41,8 @@ const NavButton = styled.button`
     props.active
       ? `
     background:hsl(206, 94%, 87%);
-    color:transparent;
+    color:hsl(243, 100%, 62%);
+    border:none;
     `
       : `
     background:transparent;
