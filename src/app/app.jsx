@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AddOns from "../components/addOns/addOns";
 import UserInfo from "../components/form";
 import Pricing from "../components/pricing/pricing";
 import Sidebar from "../components/sidebar";
@@ -50,6 +51,16 @@ const App = () => {
             handleData={handleData}
             next={handleNext}
             handleBack={handleBack}
+          />
+        )}
+        {step === 3 && (
+          <AddOns
+            step={step}
+            storedData={data.step3}
+            period={data.step2.period}
+            handleNext={handleNext}
+            handleBack={handleBack}
+            handleData={handleData}
           />
         )}
       </Box>
