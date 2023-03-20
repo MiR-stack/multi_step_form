@@ -5,7 +5,7 @@ import { data as rootData } from "./data";
 import FormActions from "../formActions";
 import { Container } from "../styles/styles";
 
-function UserInfo({ step, handleForm, next }) {
+function UserInfo({ step, storedData, handleForm, next }) {
   // handle error
   const defaultError = arrToObject(rootData.state, "error");
   const initError = arrToObject(rootData.state, "initError");
@@ -24,7 +24,7 @@ function UserInfo({ step, handleForm, next }) {
 
   //   handle Data
   const initData = arrToObject(rootData.state, "initData");
-  const [data, setData] = useState(initData);
+  const [data, setData] = useState(storedData || initData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,12 +62,10 @@ function UserInfo({ step, handleForm, next }) {
       }
     }
 
-    if(isValidate){
-        handleForm(data)
-        next()
+    if (isValidate) {
+      handleForm(data);
+      next();
     }
-
-    console.log(isValidate);
   };
 
   return (

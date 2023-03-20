@@ -1,27 +1,7 @@
 
 export const data = [
     
-    {
-      title: "Select your plan",
-      description: "You have the option of monthly or yearly billing.",
-      state:[
-        {
-          icon:'',
-          name:'arcade',
-          fee:9
-        },
-        {
-          icon:'',
-          name:'advanced',
-          fee:12
-        },
-        {
-          icon:'',
-          name:'pro',
-          fee:15
-        }
-      ]
-    },
+   
     {
       title: "Pick add-ons",
       description: "Add-ons help enhance your gaming experience",

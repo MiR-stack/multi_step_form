@@ -14,7 +14,7 @@ const basic = styled.button`
   border-radius: 5px;
   outline: none;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 500;
   color: hsl(231, 100%, 99%);
   background:none;
 `;

@@ -1,18 +1,17 @@
 import { useState } from "react";
 import UserInfo from "../components/form";
+import Pricing from "../components/pricing/pricing";
 import Sidebar from "../components/sidebar";
 import { Box, Container } from "./app.styled";
 
 const App = () => {
   const [step, setStep] = useState(1);
-  const [data,setData] = useState({})
-
+  const [data, setData] = useState({});
 
   const handleNext = () => {
-    if(step <4){
-      setStep(step + 1)
+    if (step < 4) {
+      setStep(step + 1);
     }
-
   };
   const handleBack = () => {
     if (step > 1) {
@@ -21,26 +20,38 @@ const App = () => {
   };
 
   const handleCustom = (step) => {
-    if(data[`step${step}` ] || data[`step${step - 1}`]){
+    if (data[`step${step}`] || data[`step${step - 1}`]) {
       setStep(step);
     }
   };
 
-
   // handle form data
 
-
-  const handleForm = (userData)=>{
-   setData({...data,[`step${step}`]:userData})
-  }
-
-  // console.log(data)
+  const handleData = (userData) => {
+    setData({ ...data, [`step${step}`]: userData });
+  };
 
   return (
     <Container>
       <Box>
         <Sidebar step={step} handleCustom={handleCustom} />
-        <UserInfo step={step} next={handleNext} handleForm={handleForm} />
+        {step === 1 && (
+          <UserInfo
+            step={step}
+            storedData={data.step1}
+            next={handleNext}
+            handleForm={handleData}
+          />
+        )}
+        {step === 2 && (
+          <Pricing
+            step={step}
+            storedData={data.step2}
+            handleData={handleData}
+            next={handleNext}
+            handleBack={handleBack}
+          />
+        )}
       </Box>
     </Container>
   );
