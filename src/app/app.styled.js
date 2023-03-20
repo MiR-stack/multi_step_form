@@ -7,13 +7,7 @@ const Container = styled.div`
   background:hsl(229, 24%, 87%);
 `;
 
-const Main = styled.div`
-    width: 600px;
-    padding: 50px 100px 30px 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`
+
 
 const Box = styled.div`
   max-width: 1440px;
@@ -29,4 +23,4 @@ const Box = styled.div`
 `;
 
 
-export {Container,Main,Box}
+export {Container,Box}
