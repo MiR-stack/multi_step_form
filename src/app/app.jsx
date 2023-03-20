@@ -3,6 +3,7 @@ import AddOns from "../components/addOns/addOns";
 import UserInfo from "../components/form";
 import Pricing from "../components/pricing/pricing";
 import Sidebar from "../components/sidebar";
+import Summary from "../components/summary/summary";
 import { Box, Container } from "./app.styled";
 
 const App = () => {
@@ -23,13 +24,28 @@ const App = () => {
   const handleCustom = (step) => {
     if (data[`step${step}`] || data[`step${step - 1}`]) {
       setStep(step);
+    }else if(step === 1){
+      setStep(step)
     }
   };
 
-  // handle form data
+  // handle data
 
   const handleData = (userData) => {
     setData({ ...data, [`step${step}`]: userData });
+  };
+
+  let summary = {
+    pricing: {
+      name: data.step2?.pricing.name,
+      period: data.step2?.period,
+      price: data.step2?.pricing.price[data.step2?.period],
+    },
+    addons: data.step3?.filter((item) => item.value),
+  };
+
+  const handleConfirm = (data) => {
+    setData(data)
   };
 
   return (
@@ -63,6 +79,17 @@ const App = () => {
             handleData={handleData}
           />
         )}
+        {step === 4 && data.step1 && (
+          <Summary
+            step={step}
+            summary={summary}
+            handleBack={handleBack}
+            handleCustom={handleCustom}
+            handleConfirm={handleConfirm}
+          />
+        )}
+
+        {data.total && <div> success</div>}
       </Box>
     </Container>
   );
