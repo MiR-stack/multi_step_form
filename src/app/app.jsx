@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddOns from "../components/addOns/addOns";
+import Confirmation from "../components/confirmation/confirmation";
 import UserInfo from "../components/form";
 import Pricing from "../components/pricing/pricing";
 import Sidebar from "../components/sidebar";
@@ -24,8 +25,9 @@ const App = () => {
   const handleCustom = (step) => {
     if (data[`step${step}`] || data[`step${step - 1}`]) {
       setStep(step);
-    }else if(step === 1){
-      setStep(step)
+    } else if (step === 1 && data.total) {
+      setStep(step);
+      setData({})
     }
   };
 
@@ -45,7 +47,7 @@ const App = () => {
   };
 
   const handleConfirm = (data) => {
-    setData(data)
+    setData(data);
   };
 
   return (
@@ -89,7 +91,7 @@ const App = () => {
           />
         )}
 
-        {data.total && <div> success</div>}
+        {step === 4 && data.total && <Confirmation />}
       </Box>
     </Container>
   );
