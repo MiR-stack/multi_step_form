@@ -23,7 +23,15 @@ const Container = styled(container)`
     
     justify-content: center;
     align-items: center;
-    gap:10px
+    gap:10px;
+
+    @media(max-width:600px){
+        position: absolute;
+        top: 20%;
+        height: 40%;
+        width: 90%;
+        border-radius: 10px;
+    }
 `
 
 function Confirmation() {

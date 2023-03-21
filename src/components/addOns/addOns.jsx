@@ -13,8 +13,15 @@ import {
   Wraper,
 } from "./addOns.styled";
 
-function AddOns({ step,handleData, storedData, period, handleNext, handleBack }) {
-  const [addons, setAddons] = useState(storedData || data.state);
+function AddOns({
+  step,
+  handleData,
+  storedData,
+  period,
+  handleNext,
+  handleBack,
+}) {
+  const [addons, setAddons] = useState(storedData || JSON.parse(JSON.stringify(data.state)));
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -30,9 +37,9 @@ function AddOns({ step,handleData, storedData, period, handleNext, handleBack })
     setAddons(newAddOns);
   };
 
-  useEffect(()=>{
-    handleData(addons)
-  },[addons])
+  useEffect(() => {
+    handleData(addons);
+  }, [addons]);
 
   return (
     <Container>

@@ -1,14 +1,14 @@
-import { Description, Title } from "./index.styled"
+import { Container, Description, Title } from "./index.styled"
 
 
 
 function Layout({title,description,children}) {
   return (
-    <div>
+    <Container>
         <Title>{title} </Title>
         <Description>{description} </Description>
         {children}
-    </div>
+    </Container>
   )
 }
 

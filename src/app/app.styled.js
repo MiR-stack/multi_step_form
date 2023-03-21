@@ -11,7 +11,7 @@ const Container = styled.div`
 
 const Box = styled.div`
   max-width: 1440px;
-  height:560px;
+ min-height:560px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -20,6 +20,20 @@ const Box = styled.div`
   background-color:hsl(231, 100%, 99%) ;
   padding:10px;
   display: flex;
+
+
+
+  @media (max-width:600px){
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    padding:0;
+    justify-content: space-between;
+    align-items: center;
+    background: hsl(217, 100%, 97%);
+    position: relative;
+
+  }
 `;
 
 

@@ -1,4 +1,4 @@
-import { Container, NavButton, NavItem, Section, Step } from "./index.styled";
+import { Container, NavButton, NavItem, Section, Step, StepWraper } from "./index.styled";
 
 const StepTitles = ["your info", "select plan", "add-ons", "summary"];
 
@@ -8,10 +8,10 @@ function Sidebar({ handleCustom, step }) {
       {StepTitles.map((item, index) => (
         <NavItem key={index} onClick={() => handleCustom(index + 1)}>
           <NavButton active={step === index + 1}>{index + 1} </NavButton>
-          <div>
+          <StepWraper>
             <Step>step {index + 1} </Step>
             <Section>{item} </Section>
-          </div>
+          </StepWraper>
         </NavItem>
       ))}
     </Container>

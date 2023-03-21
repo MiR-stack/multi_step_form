@@ -5,7 +5,13 @@ const Box = styled(Flex)`
   flex-direction: column;
   gap: 30px;
 `;
-const Wraper = styled(Flex)``;
+const Wraper = styled(Flex)`
+
+@media(max-width:800px){
+  flex-direction: column;
+  width: 100%;
+}
+`;
 
 const Card = styled.div`
   border: 1px solid hsl(229, 24%, 87%);
@@ -26,10 +32,21 @@ const Card = styled.div`
     border: 1px solid hsl(213, 96%, 18%);
     background: hsl(217, 100%, 97%);
   }
+
+  @media(max-width:800px){
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  width:100%;
+}
 `;
 
 const Content = styled.div`
   margin-top: 40px;
+
+  @media (max-width:800px){
+    margin: 0;
+  }
 `;
 
 const Name = styled.h3`

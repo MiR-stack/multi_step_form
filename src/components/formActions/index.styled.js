@@ -6,6 +6,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    margin-top: 30px;
 `
 
 const basic = styled.button`
@@ -25,7 +26,7 @@ const Next = styled(basic)`
   margin-left: auto;
 
   &:hover {
-    background: hsl(243, 100%, 62%);
+    background: hsl(213, 96%, 28%);
   }
 `;
 

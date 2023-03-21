@@ -8,7 +8,7 @@ function FormActions({ step, handleNext, handleBack, type, handleConfirm }) {
       {step < 4 && (
         <Next type={type || "text"} onClick={handleNext}>
           {" "}
-          next page
+          next step
         </Next>
       )}
       {step === 4 && <Confirm onClick={handleConfirm}>confirm</Confirm>}
